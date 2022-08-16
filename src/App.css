@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -47,7 +48,11 @@
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem;
+<<<<<<< HEAD
+  width: 100%
+=======
   width: 100%;
+>>>>>>> f329405c7e82f0a0381c6390de206323a260d457
 }
 
 .off{
@@ -63,4 +68,9 @@ button {
   border: none;
   border-radius: 1rem;
   padding: .5rem 1rem;
+<<<<<<< HEAD
+  background-color: black;
+  color: white;
+=======
+>>>>>>> f329405c7e82f0a0381c6390de206323a260d457
 }
