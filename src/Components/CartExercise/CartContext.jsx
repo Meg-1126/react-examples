@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import { createContext } from 'react';
 
 export const CartContext = createContext();
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + action.payload };
+    case 'decrement':
+      return { count: state.count - action.payload };
+    case 'reset':
+      return { count: 0};
+    default:
+      return state;
+  }
+}
+
 export const CartProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, { count: 0});
   const [cartList, setCartList] = useState([]);
 
   const addToCart = (newProduct) => {
@@ -43,7 +57,7 @@ export const CartProvider = ({ children }) => {
   };
   return (
     <CartContext.Provider
-      value={{ cartList, addToCart, calculateTotal, removeItem }}>
+      value={{ cartList, addToCart, calculateTotal, removeItem, state, dispatch }}>
       {children}
     </CartContext.Provider>
   );
